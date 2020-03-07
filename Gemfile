@@ -30,11 +30,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem "sidekiq"
+gem "sidekiq-status"
+gem "redis-namespace"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,6 +57,7 @@ group :development do
   gem "capistrano-bundler", require: false
   gem "capistrano3-puma"
   gem "capistrano-rvm"
+  gem "capistrano-sidekiq"
 end
 
 group :test do

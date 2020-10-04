@@ -6,17 +6,17 @@ set :repo_url, "git@github.com:at-uytran/dep-puma.git"
 set :sidekiq_default_hooks,  true
 set :pty, true
 
-namespace :deploy do
-  after :publishing, "deploy:restart"
-  after :finishing, "deploy:cleanup"
+# namespace :deploy do
+#   after :publishing, "deploy:restart"
+#   after :finishing, "deploy:cleanup"
 
-  task :add_default_hooks do
-    after 'deploy:starting', 'sidekiq:quiet'
-    after 'deploy:updated', 'sidekiq:stop'
-    after 'deploy:reverted', 'sidekiq:stop'
-    after 'deploy:published', 'sidekiq:start'
-  end
-end
+#   task :add_default_hooks do
+#     after 'deploy:starting', 'sidekiq:quiet'
+#     after 'deploy:updated', 'sidekiq:stop'
+#     after 'deploy:reverted', 'sidekiq:stop'
+#     after 'deploy:published', 'sidekiq:start'
+#   end
+# end
 
 
 # Default branch is :master

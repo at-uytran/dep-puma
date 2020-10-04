@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Set file shared/puma.rb if using without_lib branch
 
-Things you may want to cover:
+```ruby
+#!/usr/bin/env puma
 
-* Ruby version
+directory '/var/www/dep-puma-app/current'
+rackup "/var/www/dep-puma-app/current/config.ru"
+environment 'staging'
 
-* System dependencies
+tag ''
 
-* Configuration
+pidfile "/var/www/dep-puma-app/shared/tmp/pids/puma.pid"
+state_path "/var/www/dep-puma-app/shared/tmp/pids/puma.state"
+stdout_redirect '/var/www/dep-puma-app/shared/log/puma_error.log', '/var/www/dep-puma-app/shared/log/puma_access.log', true
 
-* Database creation
+threads 0,8
 
-* Database initialization
+bind 'unix:///var/www/dep-puma-app/shared/tmp/sockets/puma.sock'
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+workers 0
+```
+```shell
+cap staging deploy:check
+cap staging deploy
+```

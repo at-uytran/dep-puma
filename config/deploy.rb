@@ -2,7 +2,7 @@
 lock "~> 3.12.0"
 
 set :application, "dep_puma_app"
-set :repo_url, "git@github.com:at-uytran/dep-puma.git"
+set :repo_url, "https://github.com/at-uytran/dep-puma.git"
 
 
 # Default branch is :master
